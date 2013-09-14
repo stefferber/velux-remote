@@ -76,17 +76,26 @@ app.get('/connectedhome/windows', function(req, res){
     console.log("bytes successul written: "+ bytesWritten);
   });  
 
+  var windowStatus="Window status is unknown. Relais for window control are set:";
+
   myPort.on("data", function(data) {
-    var windowStatus="Window status is unknown. Relais for window control are set";
-//    for (var i = 0; i < data.length ; i++) {
-//     if(data[i] == [0]);
-//     }
-
-      
-    console.log("data received: " + dataReadFromPort);
-  });  
-
-  res.send('Window status is...');
+    var j=0;
+    for (var i = 0; i < data.length ; i++){
+       j = i+1;
+       windowStatus = windowStatus + "\n Relay[" + j + "] = ";
+       if(data[i] == [0]){
+         windowStatus = windowStatus + "OFF"
+       } else {
+         if(data[i] == [1]){
+           windowStatus = windowStatus + "ON"
+         } else {
+           windowStatus = windowStatus + "ERROR"
+           }
+         }
+    }
+    console.log(windowStatus);
+  });
+  res.send(windowStatus);
 });
 
 app.get('/connectedhome/shades/open', function(req, res){
