@@ -12,4 +12,7 @@
  * node.js express REST API to remote control velux windows 
  * via the KMtronic USB 4 Relay Board RS232
  * sigma-shop.com/product/75/usb-4-relay-board-rs232-serial-controlled-pcb.html
+ * Please be aware that you need dedicated and self-made hardware for this software
+ * - KMtronic relay board connected to your USB or RS232 interface
+ * - self made wiring to the Velux remote controls: Velux SSL, Velux KLR100 
  *******************************************************************************/
