@@ -18,7 +18,10 @@ var express = require('express');
 var app = express();
 var serialport = require("serialport");
 
-var myPortPath = "/dev/cu.usbserial-A101LV3L";
+// on Mac mini USB port name
+//var myPortPath = "/dev/cu.usbserial-A101LV3L";
+// on Dreamplug Debian USB port name
+var myPortPath = "/dev/ttyUSB0";
 
 var portCmdShadesOpenStart = Buffer('FF0101', 'hex');
 var portCmdShadesOpenEnd = Buffer('FF0100', 'hex');
